@@ -6486,9 +6486,9 @@ MonoBehaviour:
   pointObserver: {fileID: 997632723}
   uiAnimator: {fileID: 425728431}
   tutorialTextMesh: {fileID: 1096345231}
-  tutorialText: Tap to start playing
-  returnText: Tap to try again
-  winText: Awesome! Tap to do it again.
+  tutorialText: Tap to play
+  returnText: Try again!
+  winText: Awesome! Do it again.
 --- !u!1 &1029341694
 GameObject:
   m_ObjectHideFlags: 0

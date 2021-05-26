@@ -1,5 +1,37 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!60 &3923670627121271455
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966633201187324929}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.92, y: 3.92}
+    newSize: {x: 2.92, y: 3.92}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.7512913, y: 1.8991208}
+      - {x: -1.1861162, y: 1.3584826}
+      - {x: -0.96471596, y: -0.5754838}
+      - {x: -1.3951416, y: -1.6264603}
+      - {x: -0.38761532, y: -1.9087977}
+      - {x: 1.4186362, y: -1.3578818}
+      - {x: 0.27831054, y: 1.2936838}
 --- !u!1001 &7487339218705127729
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55,6 +87,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: vacuum
       objectReference: {fileID: 0}
+    - target: {fileID: 2635206790374352506, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: m_Mass
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2957285615846790078, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
       propertyPath: m_Size.x
       value: 2.7458134
@@ -87,6 +123,10 @@ PrefabInstance:
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 3.92
       objectReference: {fileID: 0}
+    - target: {fileID: 3458354130797985892, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: maxLifeTime
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 8936089796043823802, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
       propertyPath: m_Size.x
       value: 2.92
@@ -103,5 +143,11 @@ PrefabInstance:
       propertyPath: m_WasSpriteAssigned
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2957285615846790078, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+--- !u!1 &7966633201187324929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 677639970367708464, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+  m_PrefabInstance: {fileID: 7487339218705127729}
+  m_PrefabAsset: {fileID: 0}

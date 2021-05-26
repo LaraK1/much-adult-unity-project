@@ -55,6 +55,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: letter
       objectReference: {fileID: 0}
+    - target: {fileID: 2635206790374352506, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: m_Mass
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 2957285615846790078, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
       propertyPath: m_Size.x
       value: 1.97
@@ -86,6 +90,14 @@ PrefabInstance:
     - target: {fileID: 2957285615846790078, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458354130797985892, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: force
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458354130797985892, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: forceDuration
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 8936089796043823802, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
       propertyPath: m_Size.x

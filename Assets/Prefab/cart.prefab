@@ -94,6 +94,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: cart
       objectReference: {fileID: 0}
+    - target: {fileID: 2635206790374352506, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458354130797985892, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: force
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458354130797985892, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: maxLifeTime
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3458354130797985892, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
+      propertyPath: forceDuration
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 8936089796043823802, guid: 464bf6bc3607f904d9388ab6bedf8630, type: 3}
       propertyPath: m_Size.x
       value: 3.98

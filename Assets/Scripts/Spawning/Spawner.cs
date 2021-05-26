@@ -45,6 +45,7 @@ public class Spawner : MonoBehaviour
     /// <param name="shouldSpawn">True - Spawning on; False - Spawning off</param>
     public void ToggleSpawning(bool shouldSpawn)
     {
+        spawnTimer = 0;
         frequency = 3f;
         isSpawning = shouldSpawn;
     }
