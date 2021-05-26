@@ -11,16 +11,19 @@ public class FeedbackListener : MonoBehaviour
 
     void Start()
     {
-        Thing.PlayParticle += PlayParticle;
+        Thing.PlayParticle += PlayFeedback;
         Audiomanager.Instance.Play("music");
     }
 
     private void OnDestroy()
     {
-        Thing.PlayParticle -= PlayParticle;
+        Thing.PlayParticle -= PlayFeedback;
     }
 
-    private void PlayParticle(bool good, Vector3 position)
+    /// <summary>Plays particles and sound.</summary>
+    /// <param name="good">True: Good / white feedback; False: Bad / red feedback</param>
+    /// <param name="position">New Position for the partiles to play..</param>
+    private void PlayFeedback(bool good, Vector3 position)
     {
         if (good)
         {

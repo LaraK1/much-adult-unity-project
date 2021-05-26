@@ -11,6 +11,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+        // triggers spawning at the current frequency if spawner should spawn
         if (isSpawning)
         {
             spawnTimer += Time.deltaTime;
@@ -22,9 +23,10 @@ public class Spawner : MonoBehaviour
         }
     }
 
+    /// <summary> Gets an object out of pool and resets it.</summary>
     private void Spawn()
     {
-        // get the next object in queue
+        // get object out of pool
         var thing = ThingPool.Instance.Get();
 
         // reset the object to the start position
@@ -40,13 +42,12 @@ public class Spawner : MonoBehaviour
     }
 
     /// <summary>
-    /// Can turn spawning things on and off. Reset frequency to 3;
+    /// Can turn spawning things on and off. Reset timer.
     /// </summary>
     /// <param name="shouldSpawn">True - Spawning on; False - Spawning off</param>
     public void ToggleSpawning(bool shouldSpawn)
     {
         spawnTimer = 0;
-        frequency = 3f;
         isSpawning = shouldSpawn;
     }
 }

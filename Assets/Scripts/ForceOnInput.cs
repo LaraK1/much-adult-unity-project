@@ -16,6 +16,7 @@ public class ForceOnInput : MonoBehaviour
     {
         if (_shouldMove == false)
         {
+            // should move when mouse is clicked / screen is tapped
             _shouldMove = Input.GetMouseButton(0);
         }
 
@@ -24,7 +25,8 @@ public class ForceOnInput : MonoBehaviour
     private void FixedUpdate()
     {
         if (_shouldMove)
-        {
+        {        
+            // adds physic force to foot
             _rb.AddForce(Vector2.up * force);
             _shouldMove = false;
         }

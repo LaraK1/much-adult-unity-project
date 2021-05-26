@@ -49,12 +49,12 @@ public class Thing : MonoBehaviour
     }
     void Start()
     {
-        Manager.isGameover += manager_isGameOver;
+        Manager.isOver += manager_isGameOver;
     }
 
     private void OnDestroy()
     {
-        Manager.isGameover -= manager_isGameOver;
+        Manager.isOver -= manager_isGameOver;
     }
 
     private void OnEnable()
@@ -108,11 +108,12 @@ public class Thing : MonoBehaviour
             if (PlayParticle != null)
                 PlayParticle(false, this.transform.position);
 
-            // can return itself to pool
+            // returns itself to pool
             ThingPool.Instance.ReturnToPool(this);
         }
     }
 
+    /// <summary>Monitors collisions with player.</summary>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // reset life time if colliding with player
@@ -125,6 +126,7 @@ public class Thing : MonoBehaviour
 
     }
 
+    /// <summary>Monitors collisions with borders.</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (lifeTime > forceDuration)
@@ -159,10 +161,8 @@ public class Thing : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// Varies color in different speeds
-    /// </summary>
-    /// <param name="speed">Changes blink speed. The higher, the faster.</param>
+    /// <summary>Varies color dependend on speed.</summary>
+    /// <param name="speed">Blink speed. The higher, the faster.</param>
     private void Blink(int speed)
     {
         int currentTime = (int)(lifeTime * speed);
@@ -172,9 +172,7 @@ public class Thing : MonoBehaviour
             ResetColor();
     }
 
-    /// <summary>
-    /// Triggers point change and returns thing to pool.
-    /// </summary>
+    /// <summary>Triggers point change and returns thing to pool.</summary>
     /// <param name="points">Point increase or penalty.</param>
     private void BoundaryCollision(int points)
     {
@@ -186,14 +184,13 @@ public class Thing : MonoBehaviour
         ThingPool.Instance.ReturnToPool(this);
     }
 
+    /// <summary>Resets its color to white.</summary>
     private void ResetColor()
     {
         _spriteRenderer.color = Color.white;
     }
 
-    /// <summary>
-    /// Return to pool if stop playing
-    /// </summary>
+    /// <summary>Returns itself when the game has ended.</summary>
     private void manager_isGameOver(bool gameOver)
     {
         if (gameOver)

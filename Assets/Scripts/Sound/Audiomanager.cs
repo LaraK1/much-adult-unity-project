@@ -3,6 +3,7 @@ using UnityEngine;
 using System;
 using System.Collections;
 
+// this is my standard audio manager, which I should revise a bit.
 public class Audiomanager : MonoBehaviour {
 
 	public Sound[] sounds;
@@ -12,7 +13,7 @@ public class Audiomanager : MonoBehaviour {
 	public static float fadetime = 0.5f;
     
 	void Awake () {
-		//Make a AudioSouce for each sound in the array
+		// instanciate audio source for each sound in array
 		foreach (Sound s in sounds) {
 			s.source = gameObject.AddComponent<AudioSource> ();
 			s.source.clip = s.clip;
@@ -30,7 +31,8 @@ public class Audiomanager : MonoBehaviour {
         }
     }
 
-	//Play the sound
+	/// <summary>Play sound by name.</summary>
+	/// <param name="name">Name of sound object to be played.</param>
 	public void Play(string name){
 		Sound s = Array.Find (sounds, sound => sound.name == name);
 		if (s == null) {
@@ -39,7 +41,7 @@ public class Audiomanager : MonoBehaviour {
 		}
 
 
-		//Fade in, when sound is music
+		// fade in if sound is music
 		if (s.music) {
 			StartCoroutine (FadeIn (s.source, s.volume));
 		} else {
@@ -47,7 +49,8 @@ public class Audiomanager : MonoBehaviour {
 		}
 	}
 
-	//Stop the sound
+	/// <summary>Stop sound by name.</summary>
+	/// <param name="name">Name of sound object to be stopped.</param>
 	public void Stop(string name){
 		Sound s = Array.Find (sounds, sound => sound.name == name);
 		if (s == null) {
@@ -55,7 +58,7 @@ public class Audiomanager : MonoBehaviour {
 			return;
 		}
 
-		//Fade out, when sound is music
+		// fade out if sound is music
 		if (s.music) {
 			StartCoroutine (FadeOut (s.source));
 		} else {
@@ -78,7 +81,7 @@ public class Audiomanager : MonoBehaviour {
 	public static IEnumerator FadeOut (AudioSource audioSource) {
 		float startVolume = audioSource.volume;
 
-		while (audioSource.volume > 0.1) {
+		while (audioSource.volume > 0.1f) {
 			audioSource.volume -= startVolume * Time.deltaTime / fadetime;
 
 			yield return null;
@@ -88,7 +91,8 @@ public class Audiomanager : MonoBehaviour {
 		audioSource.Stop ();
 	}
 
-    public bool ToggleMuteAll()
+	/// <summary>Toggles mut on all sources.</summary>
+	public bool ToggleMuteAll()
     {
         AudioSource[] allAudios = this.GetComponents<AudioSource>();
         foreach (AudioSource s in allAudios)
@@ -99,7 +103,8 @@ public class Audiomanager : MonoBehaviour {
         return allAudios[0].mute;
     }
 
-    public bool IsMuted()
+	/// <summary>Check if muted.</summary>
+	private bool IsMuted()
     {
         bool muted = this.GetComponent<AudioSource>().mute;
         return muted;

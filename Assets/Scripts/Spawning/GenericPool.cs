@@ -21,7 +21,7 @@ public abstract class GenericPool<T> : MonoBehaviour where T : Component
         // simple generic singleton
         Instance = this;
 
-        //currentPrefabCount = 0;
+        // check if prefabs are assigned
         prefabCount = listOfPrefabs.Count;
         if (prefabCount < 1)
         {
@@ -31,33 +31,41 @@ public abstract class GenericPool<T> : MonoBehaviour where T : Component
 
     private void Start()
     {
+       // add all prefabs to the pool
        AddObjects(prefabCount);
     }
 
-    // get the next thing out of queue
+    /// <summary>Get random object out of pool.</summary>
     public T Get()
     {
         int objectCount = objects.Count;
+
+        // create new objects if pool is empty
         if (objectCount == 0)
         {
             AddObjects(1);
         }
 
+        // random id
         int randomId = Random.Range(0, objectCount);
+
+        // remove object out of pool and return it
         T currentObject = objects[randomId];
         objects.RemoveAt(randomId);
         return currentObject;
        
     }
 
-    // things can return themselfes here
+    /// <summary>Objects can return themself to the pool.</summary>
+    /// <param name="objectToReturn">Object that should be returned to the pool.</param>
     public void ReturnToPool(T objectToReturn)
     {
         objectToReturn.gameObject.SetActive(false);
         objects.Add(objectToReturn);
     }
 
-    // instantiate new object and enqueue it to pool
+    /// <summary>Instantiate new object and add it to pool.</summary>
+    /// <param name="count">Number of objects to be added.</param>
     private void AddObjects(int count)
     {
         for (int i = 0; i < count; i++)

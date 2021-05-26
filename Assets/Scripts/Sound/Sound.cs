@@ -1,7 +1,7 @@
 ﻿using UnityEngine.Audio;
 using UnityEngine;
 
-//Pattern soundclip
+// pattern soundclip
 [System.Serializable]
 public class Sound {
 
