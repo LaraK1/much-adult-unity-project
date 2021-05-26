@@ -42,15 +42,6 @@ public class Manager : MonoBehaviour
         tutorialTextMesh.text = tutorialText;
     }
 
-    private void Update()
-    {
-        if(!isPlaying && Input.GetMouseButtonDown(0))
-        {
-            StartPlaying();
-        }
-
-    }
-
     public void StartPlaying()
     {
         // play end animation
