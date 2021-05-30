@@ -6482,7 +6482,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dc814e17b9cbb04abc85bf97c88c0f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPlaying: 0
   pointObserver: {fileID: 997632723}
   uiAnimator: {fileID: 425728431}
   tutorialTextMesh: {fileID: 1096345231}

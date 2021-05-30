@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class Manager : MonoBehaviour
 {
-    [SerializeField]
-    private bool isPlaying;
     public static event Action<bool> isOver;
 
     public static Manager Instance { get; private set; }
@@ -33,7 +31,6 @@ public class Manager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        isPlaying = false;
     }
 
     private void Start()
@@ -48,7 +45,6 @@ public class Manager : MonoBehaviour
         uiAnimator.SetTrigger("End");
 
         // reset points and time
-        isPlaying = true;
         pointObserver.ResetPoints();
         startTime = Time.time;
     }
@@ -79,7 +75,6 @@ public class Manager : MonoBehaviour
         uiAnimator.SetBool("HasWon", hasWon);
         uiAnimator.SetTrigger("Start");
 
-        isPlaying = false;
         if (isOver != null)
             isOver(true);
     }

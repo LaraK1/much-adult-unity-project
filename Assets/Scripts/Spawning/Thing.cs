@@ -23,6 +23,7 @@ public class Thing : MonoBehaviour
     private float force = 4;
     [SerializeField]
     private float forceDuration = 0.2f;
+    private bool isSpawing;
 
     // visual
     private Color orangeRed = new Color(0.7f,0.33f,0.11f);
@@ -60,6 +61,7 @@ public class Thing : MonoBehaviour
     private void OnEnable()
     {
         lifeTime = 0f;
+        isSpawing = true;
         ResetColor();
     }
 
@@ -68,9 +70,9 @@ public class Thing : MonoBehaviour
         lifeTime += Time.deltaTime;
 
         // give boost
-        if(lifeTime < forceDuration)
+        if(lifeTime > forceDuration && isSpawing)
         {
-            _rb.AddForce(Vector2.left * force);
+            isSpawing = false;
         }
 
         // visual count down
@@ -78,6 +80,14 @@ public class Thing : MonoBehaviour
 
         // expire
         Expire();
+    }
+
+    private void FixedUpdate()
+    {
+        if (isSpawing)
+        {
+            _rb.AddForce(Vector2.left * force);
+        }
     }
 
     /// <summary> Checks if count down takes place.</summary>
@@ -129,7 +139,7 @@ public class Thing : MonoBehaviour
     /// <summary>Monitors collisions with borders.</summary>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (lifeTime > forceDuration)
+        if (!isSpawing)
         {
             // collision with left boundary
             if (collision.gameObject.layer == 10)
